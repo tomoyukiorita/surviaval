@@ -20,6 +20,8 @@ public class SwipeCamera : MonoBehaviour
 	//表示するテキスト
 	public Text text;
 
+	private float i;
+
 
 
 	void Start ()
@@ -78,11 +80,13 @@ public class SwipeCamera : MonoBehaviour
 						//右方向にスワイプしたとき
 						//ここに処理を書いてください
 
-						transform.localRotation = Quaternion.Euler(new Vector3(5, 0, 0));
+						transform.Rotate(0, 15, 0);
+
 						
 					} else if (SignValueX < 0) {
 						
 						//ここに処理を書いてください
+						transform.Rotate(0, -15, 0);
 						print ("LEFT" + "swipeX is" + SignValueX.ToString ());
 						text.text = "LEFTSwipe";
 					}
