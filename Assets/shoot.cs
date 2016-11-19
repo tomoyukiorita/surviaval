@@ -23,18 +23,18 @@ public class shoot : MonoBehaviour {
 
 		time += Time.deltaTime;
 
-		// 左クリック押下かつ設定した連射間隔より経過時間が大きければ発射可能
-		if (Input .GetButton("Fire1") && time >= interval)
-		{
-			Shoot();
-			time = 0f;
 
-	}
+	
 	
 	}
 
-	void Shoot()
+	public void Shoot()
 	{
+		// 設定した連射間隔より経過時間が大きければ発射可能
+		if (time >= interval) {
+			Shoot ();
+			time = 0f;
+		}
 		// 弾の角度位置を設定し、弾を生成する
 		bulletClone = GameObject.Instantiate(bullet, tip.position, tip.rotation)as GameObject ;
 		bulletClone.GetComponent< Rigidbody>().AddForce(tip.forward * speed);
